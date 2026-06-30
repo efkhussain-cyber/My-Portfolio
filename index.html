@@ -7,11 +7,17 @@
     <style>
         body{
     margin:0;
-    padding:30px;
+    padding:20px;
     background:linear-gradient(135deg,#FFD6E8,#F8C8DC,#E7C6FF);
     font-family:'Trebuchet MS', Arial, sans-serif;
     text-align:center;
     color:#5C3A58;
+    overflow-x:hidden;
+    box-sizing:border-box;
+}
+
+*{
+    box-sizing:border-box;
 }
 
 header{
@@ -19,13 +25,13 @@ header{
 }
 
 h1{
-    font-size:50px;
+    font-size:clamp(2.2rem,6vw,3.2rem);
     color:#D63384;
     text-shadow:2px 2px 4px #ffffff;
 }
 
 h2{
-    font-size:35px;
+    font-size:clamp(1.8rem,5vw,2.3rem);
     color:#C2185B;
 }
 
@@ -34,17 +40,20 @@ h3{
 }
 
 p{
-    font-size:18px;
+    font-size:clamp(1rem,2.5vw,1.1rem);
     color:#6D4C6D;
 }
 
 nav{
-    margin:30px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:30px auto;
 }
 
 button{
     padding:12px 25px;
-    margin:10px;
     border:none;
     border-radius:30px;
     background:#FF69B4;
@@ -61,8 +70,12 @@ button:hover{
     box-shadow:0 10px 20px rgba(199,125,255,.4);
 }
 
+button:active{
+    transform:scale(.95);
+}
+
 section{
-    width:70%;
+    width:min(90%,900px);
     margin:40px auto;
     padding:25px;
     background:#FFF8FC;
@@ -75,10 +88,22 @@ section:hover{
     transform:translateY(-10px);
 }
 
+section::before{
+    content:"🌸";
+    font-size:24px;
+    margin-right:8px;
+}
+
+section::after{
+    content:"🌸";
+    font-size:24px;
+    margin-left:8px;
+}
+
 #newCard,
 #aboutCard,
 #contactCard{
-    width:320px;
+    width:min(90%,350px);
     margin:20px auto;
     padding:20px;
     background:#FFFFFF;
@@ -95,7 +120,7 @@ section:hover{
 }
 
 hr{
-    width:70%;
+    width:min(90%,900px);
     border:2px solid #FF69B4;
     margin:35px auto;
 }
@@ -106,21 +131,6 @@ hr{
     font-weight:bold;
 }
 
-button:active{
-    transform:scale(.95);
-}
-
-section::before{
-    content:"🌸";
-    font-size:24px;
-    margin-right:8px;
-}
-
-section::after{
-    content:"🌸";
-    font-size:24px;
-    margin-left:8px;
-}
 #projects{
     display:flex;
     flex-direction:column;
@@ -131,10 +141,12 @@ section::after{
     text-decoration:none;
     color:inherit;
     width:100%;
+    display:flex;
+    justify-content:center;
 }
 
 .project-card{
-    width:350px;
+    width:min(100%,400px);
     margin:20px auto;
     padding:25px;
     background:#FFFFFF;
@@ -155,6 +167,42 @@ section::after{
 .project-card:hover{
     transform:translateY(-12px) scale(1.03);
     box-shadow:0 18px 35px rgba(214,51,132,.4);
+}
+
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    section{
+        width:95%;
+        padding:20px;
+    }
+
+    button{
+        width:100%;
+        max-width:280px;
+    }
+
+    nav{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    #newCard,
+    #aboutCard,
+    #contactCard{
+        width:100%;
+    }
+
+    .project-card{
+        width:100%;
+    }
+
+    hr{
+        width:95%;
+    }
 }
     </style>
 </head>
