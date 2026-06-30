@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#FFD6E8,#F8C8DC,#E7C6FF);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    width:400px;
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+h1{
+    color:#D63384;
+}
+
+input{
+    width:70%;
+    padding:10px;
+    font-size:16px;
+    border:2px solid #FF69B4;
+    border-radius:10px;
+}
+
+button{
+    padding:10px 18px;
+    margin:10px 5px;
+    border:none;
+    border-radius:10px;
+    background:#FF69B4;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#C77DFF;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#FFF0F7;
+    margin:10px 0;
+    padding:10px;
+    border-radius:10px;
+}
+
+.delete{
+    background:#E91E63;
+}
+
+.delete:hover{
+    background:#C2185B;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📝 My To-Do List</h1>
+
+<input type="text" id="task" placeholder="Enter a task">
+
+<button onclick="addTask()">Add</button>
+
+<ul id="taskList"></ul>
+
+</div>
+
+<script>
+
+function addTask(){
+
+    let task=document.getElementById("task");
+
+    if(task.value===""){
+        alert("Please enter a task.");
+        return;
+    }
+
+    let li=document.createElement("li");
+
+    let span=document.createElement("span");
+    span.textContent=task.value;
+
+    span.onclick=function(){
+
+        if(span.style.textDecoration==="line-through"){
+            span.style.textDecoration="none";
+        }
+        else{
+            span.style.textDecoration="line-through";
+        }
+
+    };
+
+    let remove=document.createElement("button");
+    remove.textContent="Delete";
+    remove.className="delete";
+
+    remove.onclick=function(){
+        li.remove();
+    };
+
+    li.appendChild(span);
+    li.appendChild(remove);
+
+    document.getElementById("taskList").appendChild(li);
+
+    task.value="";
+
+}
+
+</script>
+
+</body>
+</html>

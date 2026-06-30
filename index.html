@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        body{
+    margin:0;
+    padding:30px;
+    background:linear-gradient(135deg,#FFD6E8,#F8C8DC,#E7C6FF);
+    font-family:'Trebuchet MS', Arial, sans-serif;
+    text-align:center;
+    color:#5C3A58;
+}
+
+header{
+    margin-bottom:40px;
+}
+
+h1{
+    font-size:50px;
+    color:#D63384;
+    text-shadow:2px 2px 4px #ffffff;
+}
+
+h2{
+    font-size:35px;
+    color:#C2185B;
+}
+
+h3{
+    color:#E91E63;
+}
+
+p{
+    font-size:18px;
+    color:#6D4C6D;
+}
+
+nav{
+    margin:30px;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    background:#FF69B4;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.4s;
+}
+
+button:hover{
+    background:#C77DFF;
+    transform:translateY(-6px) scale(1.05);
+    box-shadow:0 10px 20px rgba(199,125,255,.4);
+}
+
+section{
+    width:70%;
+    margin:40px auto;
+    padding:25px;
+    background:#FFF8FC;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(214,51,132,.25);
+    transition:.4s;
+}
+
+section:hover{
+    transform:translateY(-10px);
+}
+
+#newCard,
+#aboutCard,
+#contactCard{
+    width:320px;
+    margin:20px auto;
+    padding:20px;
+    background:#FFFFFF;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(214,51,132,.25);
+    transition:.4s;
+}
+
+#newCard:hover,
+#aboutCard:hover,
+#contactCard:hover{
+    transform:translateY(-12px) scale(1.05);
+    box-shadow:0 15px 30px rgba(214,51,132,.4);
+}
+
+hr{
+    width:70%;
+    border:2px solid #FF69B4;
+    margin:35px auto;
+}
+
+#projectResult,
+#ratingResult{
+    color:#D63384;
+    font-weight:bold;
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+section::before{
+    content:"🌸";
+    font-size:24px;
+    margin-right:8px;
+}
+
+section::after{
+    content:"🌸";
+    font-size:24px;
+    margin-left:8px;
+}
+#projects{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#projects a{
+    text-decoration:none;
+    color:inherit;
+    width:100%;
+}
+
+.project-card{
+    width:350px;
+    margin:20px auto;
+    padding:25px;
+    background:#FFFFFF;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(214,51,132,.25);
+    transition:.4s;
+    cursor:pointer;
+}
+
+.project-card h3{
+    color:#D63384;
+}
+
+.project-card p{
+    color:#6D4C6D;
+}
+
+.project-card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 18px 35px rgba(214,51,132,.4);
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Portfolio</h1>
+
+    <nav>
+        <button onmouseenter="showCard('newCard')" onmouseleave="hideCard('newCard')">
+            What's New?
+        </button>
+
+        <button onmouseenter="showCard('aboutCard')" onmouseleave="hideCard('aboutCard')">
+            About
+        </button>
+
+        <button onmouseenter="showCard('contactCard')" onmouseleave="hideCard('contactCard')">
+            Contact
+        </button>
+    </nav>
+
+    <div id="newCard" hidden>
+        <h3>What's New?</h3>
+        <p>Website development for small businesses.</p>
+        <p>We specialize in creating modern, user-friendly websites.</p>
+        <p>More features are coming soon!</p>
+    </div>
+
+    <div id="aboutCard" hidden>
+        <h3>About</h3>
+        <p>I create responsive websites.</p>
+        <p>I enjoy building interactive web applications.</p>
+        <p>I am always learning new technologies.</p>
+    </div>
+
+    <div id="contactCard" hidden>
+        <h3>Contact</h3>
+        <p>Email:efkhussain@email.com</p>
+        <p>Available Monday to Friday.</p>
+    </div>
+
+</header>
+
+<hr>
+
+<section>
+    <h2>Main Section</h2>
+
+    <p>Welcome to my portfolio website.</p>
+
+    <button onclick="welcomeMessage()">
+        Explore
+    </button>
+</section>
+
+<hr>
+
+<section id="projects">
+
+    <h2>My Projects</h2>
+
+    <a href="calculator.html" target="_blank">
+        <div class="project-card">
+            <h3>🧮 Calculator</h3>
+            <p>
+                A simple calculator that performs basic arithmetic operations.
+            </p>
+        </div>
+    </a>
+
+    <a href="todo.html" target="_blank">
+        <div class="project-card">
+            <h3>📝 To-Do List</h3>
+            <p>
+                Organize tasks and keep track of your daily activities.
+            </p>
+        </div>
+    </a>
+
+    <a href="quiz.html" target="_blank">
+        <div class="project-card">
+            <h3>🧠 Quiz App</h3>
+            <p>
+                Test your knowledge with our interactive quizzes.
+            </p>
+        </div>
+    </a>
+
+</section>
+<hr>
+
+<section>
+    <h2>Rate Our Work</h2>
+
+    <button onclick="rate(1)">1</button>
+    <button onclick="rate(2)">2</button>
+    <button onclick="rate(3)">3</button>
+    <button onclick="rate(4)">4</button>
+    <button onclick="rate(5)">5</button>
+
+    <p id="ratingResult"></p>
+</section>
+
+<script>
+
+function showCard(id) {
+
+    document.getElementById("newCard").hidden = true;
+    document.getElementById("aboutCard").hidden = true;
+    document.getElementById("contactCard").hidden = true;
+
+    document.getElementById(id).hidden = false;
+}
+
+function hideCard(id) {
+
+    document.getElementById(id).hidden = true;
+}
+
+function welcomeMessage() {
+
+    alert("Welcome to my portfolio!");
+}
+
+function project(name) {
+
+    document.getElementById("projectResult").textContent =
+    "You selected: " + name;
+}
+
+function rate(value) {
+
+    document.getElementById("ratingResult").textContent =
+    "Thank you! You rated us " + value + "/5.";
+}
+
+</script>
+
+</body>
+</html>
